@@ -1,0 +1,31 @@
+@import "~normalize.css/normalize.css";
+@import "~bootstrap/scss/bootstrap";
+@import "tooltip.scss";
+
+.main {
+    margin-top: 3em;
+}
+
+.webgl {
+    position: fixed;
+    top: 10;
+    left: 0;
+    outline: none;
+    z-index: 2;
+}
+
+i {
+    position: fixed;
+    top: 20;
+    right: 20;
+    z-index: 10;
+}
+
+.demo2 {
+    font-size: 23px;
+}
+
+h2 {
+    color: blue;
+    font-size: 44px;
+}

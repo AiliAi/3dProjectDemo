@@ -1,6 +1,5 @@
 @import "~normalize.css/normalize.css";
 @import "~bootstrap/scss/bootstrap";
-@import "tooltip.scss";
 
 .main {
     margin-top: 3em;
@@ -14,11 +13,8 @@
     z-index: 2;
 }
 
-i {
-    position: fixed;
-    top: 20;
-    right: 20;
-    z-index: 10;
+.bi {
+    font-size: 2em;
 }
 
 .demo2 {

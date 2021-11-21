@@ -1,6 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -84,6 +85,13 @@ module.exports = {
                     collapseWhitespace: true
                 }
             }),
+            new webpack.ProvidePlugin({
+                '$': 'jquery',
+                'jQuery': 'jquery',
+                'window.jQuery': 'jquery',
+                'window.$': 'jquery',
+                Popper: 'popper.js'
+            }),
         ],
     module:
     {
@@ -99,7 +107,7 @@ module.exports = {
                 {
                     test: /\.pug$/,
                     use: ['html-loader', 'pug-html-loader']
-                  },
+                },
 
                 // JS
                 {
@@ -117,10 +125,10 @@ module.exports = {
                     use: [{
                         // inject CSS to page
                         loader: 'style-loader'
-                      }, {
+                    }, {
                         // translates CSS into CommonJS modules
                         loader: 'css-loader'
-                      }, {
+                    }, /*{
                         // Run postcss actions
                         loader: 'postcss-loader',
                         options: {
@@ -135,10 +143,10 @@ module.exports = {
                             }
                           }
                         }
-                      }, {
+                      }, */{
                         // compiles Sass to CSS
                         loader: 'sass-loader'
-                      }]
+                    }]
                 },
 
                 // Images
@@ -158,14 +166,17 @@ module.exports = {
 
                 // Fonts
                 {
-                    test: /\.(ttf|eot|woff|woff2)$/,
+                    test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                    include: path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
                     use:
                         [
                             {
                                 loader: 'file-loader',
                                 options:
                                 {
-                                    outputPath: 'assets/fonts/'
+                                    name: '[name].[ext]',
+                                    outputPath: 'assets/fonts',
+                                    publicPath: '../assets/fonts',
                                 }
                             }
                         ]

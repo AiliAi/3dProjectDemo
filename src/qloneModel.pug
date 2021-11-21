@@ -1,0 +1,18 @@
+extends layout.pug
+block append head
+    title=  'Qlone elephant model'
+block append content
+    .container
+        .row 
+            .h1.mt-3.mb-0 Qlone elephant model
+        .row 
+            .d-flex.flex-row-reverse
+                i(
+                    class="bi bi-info-circle-fill" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="3d elephant figure made with Qlone mobile app")
+        .row
+            canvas(class="webgl")
+        .row
+            a(href="https://www.qlone.pro" class="link-primary mt-3 mb-5") qlone.pro

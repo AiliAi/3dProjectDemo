@@ -2,5 +2,17 @@ extends layout.pug
 block append head
     title=  'Cupix model'
 block append content
-    i(class="bi bi-info-square")
-    canvas(class="webgl")
+    .container
+        .row 
+            .h1.mt-3.mb-0 Cupix virtual model
+        .row 
+            .d-flex.flex-row-reverse
+                i(
+                    class="bi bi-info-circle-fill" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Virtual model made with Cupix, in Metropolia Karamalmi campus")
+        .row
+            canvas(class="webgl")
+        .row
+            a(href="https://homes.cupix.com" class="link-primary mt-3 mb-5") homes.cupix.com

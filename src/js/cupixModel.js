@@ -1,13 +1,14 @@
 import '../styles/main.scss';
 import '../modules/nav-loading.js';
-import * as bootstrap from 'bootstrap';
+import '../modules/tooltip.js';
+
 
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 
-let perspectiveCamera, orthographicCamera, controls, scene, renderer;
+let perspectiveCamera, controls, scene, renderer;
 
 /**
  * Canvas
@@ -19,7 +20,7 @@ const canvas = document.querySelector('canvas.webgl');
  */
 const sizes = {
     width: window.innerWidth,
-    height: window.innerHeight
+    height: 480
 };
 
 const params = {
@@ -40,9 +41,6 @@ function init() {
 
     perspectiveCamera = new THREE.PerspectiveCamera(60, aspect, 1, 0);
     perspectiveCamera.position.z = 200;
-
-    orthographicCamera = new THREE.OrthographicCamera(frustumSize * aspect / - 2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / - 2, 1, 1000);
-    orthographicCamera.position.z = 200;
 
     /**
 * World
@@ -117,7 +115,7 @@ function createControls(camera) {
     controls.maxPolarAngle = Math.PI / 2;
 };
 
-/**
+/** 
 * Update
 */
 function onWindowResize() {
@@ -126,15 +124,8 @@ function onWindowResize() {
     perspectiveCamera.aspect = aspect;
     perspectiveCamera.updateProjectionMatrix();
 
-    orthographicCamera.left = - frustumSize * aspect / 2;
-    orthographicCamera.right = frustumSize * aspect / 2;
-    orthographicCamera.top = frustumSize / 2;
-    orthographicCamera.bottom = - frustumSize / 2;
-    orthographicCamera.updateProjectionMatrix();
-
-    renderer.setSize(sizes.width / sizes.height);
-
-    controls.handleResize();
+    renderer.setSize(sizes.width, sizes.height);
+    render();
 };
 
 /**

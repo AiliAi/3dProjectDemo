@@ -119,12 +119,15 @@ function createControls(camera) {
 * Update
 */
 function onWindowResize() {
+    // Update camera
     const aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
 
-    perspectiveCamera.aspect = aspect;
-    perspectiveCamera.updateProjectionMatrix();
-
+    
+    // Update renderer
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio));
     renderer.setSize(sizes.width, sizes.height);
+
     render();
 };
 

@@ -8,7 +8,7 @@ module.exports = {
     entry: {
         script: path.resolve(__dirname, '../src/js/script.js'),
         layout: path.resolve(__dirname, '../src/js/layout.js'),
-        test: path.resolve(__dirname, '../src/js/test.js'),
+        sketchfab: path.resolve(__dirname, '../src/js/sketchfab.js'),
         matterport: path.resolve(__dirname, '../src/js/matterport.js'),
         cupixModel: path.resolve(__dirname, '../src/js/cupixModel.js'),
         cupixVirtualTour: path.resolve(__dirname, '../src/js/cupixVirtualTour.js'),
@@ -52,9 +52,9 @@ module.exports = {
                 }
             }),
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, '../src/test.pug'),
-                chunks: ['test'],
-                filename: 'test.html',
+                template: path.resolve(__dirname, '../src/sketchfab.pug'),
+                chunks: ['sketchfab'],
+                filename: 'sketchfab.html',
                 minify: {
                     removeComments: true,
                     collapseWhitespace: true

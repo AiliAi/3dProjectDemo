@@ -13,7 +13,10 @@ module.exports = {
         cupixModel: path.resolve(__dirname, '../src/js/cupixModel.js'),
         cupixVirtualTour: path.resolve(__dirname, '../src/js/cupixVirtualTour.js'),
         roundme: path.resolve(__dirname, '../src/js/roundme.js'),
-        qloneModel: path.resolve(__dirname, '../src/js/qloneModel.js')
+        qloneModel: path.resolve(__dirname, '../src/js/qloneModel.js'),
+        threeTest: path.resolve(__dirname, '../src/js/threeTest.js'),
+        pannellum: path.resolve(__dirname, '../src/js/pannellum.js'),
+
     },
     output:
     {
@@ -102,6 +105,28 @@ module.exports = {
                 chunks: ['qloneModel'],
                 inject: true,
                 filename: 'qloneModel.html',
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                }
+            }),
+
+            new HtmlWebpackPlugin({
+                template: path.resolve(__dirname, '../src/threeTest.pug'),
+                chunks: ['threeTest'],
+                inject: true,
+                filename: 'threeTest.html',
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                }
+            }),
+
+            new HtmlWebpackPlugin({
+                template: path.resolve(__dirname, '../src/pannellum.pug'),
+                chunks: ['pannellum'],
+                inject: true,
+                filename: 'pannellum.html',
                 minify: {
                     removeComments: true,
                     collapseWhitespace: true

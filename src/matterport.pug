@@ -2,7 +2,16 @@ extends layout.pug
 block append head
     title=  'Matterport'
 block append content
-  .container.main
+  .container
+    .row 
+      .h1.mt-3.mb-0 Matterport virtual tour
+    .row 
+      .d-flex.flex-row-reverse
+        i(
+          class="bi bi-info-circle-fill" 
+          data-bs-toggle="tooltip" 
+          data-bs-placement="bottom" 
+          title="Virtual tour made with Matterport app and Matterport Pro2 3D camera, in Metropolia Karamalmi campus")
     .row
       iframe(
         id="mp-model"
@@ -11,4 +20,6 @@ block append content
         frameborder="0"
         allowfullscreen
         allow="xr-spatial-tracking")
+    .row
+      a(href="https://matterport.com" class="link-primary mt-3 mb-5" alt="web link to matterport page") matterport.com
 

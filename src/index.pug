@@ -2,9 +2,41 @@ extends layout.pug
 block append head
     title=  'Home'
 block append content
-    canvas(id="demo")
-    div(id="test")
-    h1 test
-    h2 test test
-    button(type="button" class="btn btn-primary") Test
-    button(type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on right") Tooltip information
+    div(id="container")  
+        h1#heading-text 
+            p VIRTUAL TOURS AND 3D MODELS ON WEB-PAGE
+            p.text-pos demo v1
+    .container 
+        .row
+            p
+                h2 Virtual tour apps we tested
+            p All of these web aplications need 360 photos to make virtual tour.
+            ul 
+                li
+                    a(href="https://krpano.com/home/" class="link-primary mt-3 mb-5" alt="web link to Krpano page") Krpano
+                    ol + Makes virtual tour from depthmaps, use 
+                        a(href="https://everpano.com/documentation" class="link-primary mt-3 mb-5" alt="web link to Everpano page") Everpano
+                        |  to make dephtmaps first.
+                    ol + Use panocamAdder plugin with blender to create 3D models from equirectangular panoramas (makes Obj file).
+                    ol - Hard to use
+                li
+                    a(href="https://homes.cupix.com/" class="link-primary mt-3 mb-5" alt="web link to Cupix page") Cupix
+                    ol + Can generate 3D models, alternative to matterport
+                li
+                    a(href="https://roundme.com" class="link-primary mt-3 mb-5" alt="web link to RoundMe page") RoundMe
+                li
+                    a(href="https://pannellum.org" class="link-primary mt-3 mb-5" alt="web link to Krpano page") Pannellum
+                    ol + Open source panorama viewer for the web
+                li
+                   a(href="https://pchen66.github.io/panolens.js/#Home" class="link-primary mt-3 mb-5" alt="web link to Panolens page") Panolens.js
+
+                li
+                    a(href="https://www.momento360.com" class="link-primary mt-3 mb-5" alt="web link to Momento360 page") Momento360
+                li
+                    a(href="https://www.marzipano.net/" class="link-primary mt-3 mb-5" alt="web link to Marzipano page") Marzipano
+                li
+                    a(href="https://threejs.org" class="link-primary mt-3 mb-5" alt="web link to Threejs page") Three.js
+                li
+                    a(href="https://matterport.com" class="link-primary mt-3 mb-5" alt="web link to Matterport page") Matterport
+
+

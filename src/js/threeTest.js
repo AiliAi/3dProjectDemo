@@ -54,7 +54,7 @@ const init = () => {
 
   //Setup lights
   //First argument is color, second is intensity
-  const ambientLight = new THREE.AmbientLight(0x404040, 2);
+  const ambientLight = new THREE.AmbientLight(0x000000, 4);
   scene.add(ambientLight);
 
   const spotLight1 = new THREE.SpotLight(0xffffff, 5);
@@ -71,11 +71,13 @@ const init = () => {
   scene.add(spotLightHelper2);
 
   //Backight
-  const spotLight3 = new THREE.SpotLight(0x1d27f0, 2);
-  spotLight3.position.set(-10, 18, -17);
+  const spotLight3 = new THREE.SpotLight(0x000000, 3);
+  spotLight3.position.set(-10, 18, -50);
   const spotLightHelper3 = new THREE.SpotLightHelper(spotLight3);
   scene.add(spotLight3);
   scene.add(spotLightHelper3);
+
+ 
 
   //Setup GUI
   const gui = new GUI();
@@ -104,7 +106,7 @@ const init = () => {
   scene.add(cameraHelper);
 
   const loader = new GLTFLoader();
-  loader.load("candle.glb", (glb) => {
+  loader.load("aula.glb", (glb) => {
     //three model is inside children, storing model inside room variable
     model = glb.scene.children[0];
     model.rotation.y = Math.PI * 10;
